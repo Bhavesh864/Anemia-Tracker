@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "476456712708",
+    "project_id": "anemia-11c9c",
+    "storage_bucket": "anemia-11c9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476456712708:android:bba3a93c0714309c90d351",
+        "android_client_info": {
+          "package_name": "com.anemia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476456712708-e7d3tb609rtm5lavoktb3d1r05e0q2au.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anemia",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "476456712708-nufqkti02o5drvlfhhqfsr706d243kej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQgpKDbMyE2wyme4XeY5sUAGjqr2Tm9UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476456712708-nufqkti02o5drvlfhhqfsr706d243kej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
