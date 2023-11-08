@@ -1,0 +1,27 @@
+
+
+
+
+// Firebase
+//https://v5.rnfirebase.io/docs/v5.x.x/getting-started
+// set in package.json: "react-native-firebase": "~5.6.0",
+
+////Task :react-native-firebase:compileReleaseJavaWithJavac FAILED
+// android.support.annotation does not exist
+// import android.support.annotation.Keep;
+//android.support.annotation does not exist
+// import android.support.annotation.RequiresPermission;
+//Firebase annotation issue and all
+// use:
+// $npx jetify
+//-----------------Issue in iOS----------
+line 113 in RNFirebaseNotifications.m
+Replace
+
+completionHandler();
+
+with
+
+dispatch_sync(dispatch_get_main_queue(), ^ {
+  completionHandler();
+});
