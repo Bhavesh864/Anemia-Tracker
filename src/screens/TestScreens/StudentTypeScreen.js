@@ -12,6 +12,7 @@ import { AppText } from '../../utility/TextUtility'
 
 const StudentTypeScreen = ({ route, navigation }) => {
     const data = route?.params?.data;
+    // console.log('hello', route.params.fromHomeScreen);
     const userProfile = useSelector(state => state.user.user);
     const [cardOptions, setCardOptions] = useState([]);
 
@@ -42,7 +43,8 @@ const StudentTypeScreen = ({ route, navigation }) => {
         if (place.title == 'PCTS') {
             navigate('pctsList', { title: place.title, key: place.key });
         } else {
-            navigate(data.key, { title: place.title, key: place.key });
+            console.log('object')
+            navigate(data.key, { title: place.title, key: place.key, 'fromHomeScreen': route.params.fromHomeScreen });
         }
     }
 

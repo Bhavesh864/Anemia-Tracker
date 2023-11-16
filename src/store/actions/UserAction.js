@@ -19,7 +19,8 @@ export const SetUserData = payload => {
 
 
 
-export const userLogin = (email, password, loginType) => {
+export const userLogin = (email, password, loginType, session) => {
+    console.log(`ses-----${session}`);
     return async dispatch => {
         try {
             let response = await PostRequest({
@@ -27,7 +28,8 @@ export const userLogin = (email, password, loginType) => {
                 body: {
                     "email": email,
                     "password": password,
-                    "loginType": loginType
+                    "loginType": loginType,
+                    'session': session,
                 },
                 loader: true
             });

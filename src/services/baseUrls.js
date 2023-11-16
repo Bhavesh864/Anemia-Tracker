@@ -2,8 +2,11 @@
 
 // export const baseUrl = "http://api.zidni.academy/v1"
 // export const baseUrl = "http://172.22.33.169:3355/v1"
-export const baseUrl = "http://139.59.0.129:5432/v1"
-// export const baseUrl = "http://103.203.136.70:3355/v1"
+
+//
+// export const baseUrl = "http://139.59.0.129:5432/v1"
+
+export const baseUrl = "https://9c58-122-177-211-212.ngrok-free.app/v1"
 
 //auth
 export const loginUrl = `${baseUrl}/auth/login`

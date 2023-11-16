@@ -100,6 +100,7 @@ export const getStudentsByInst = async (id, search = "", loader = true) => {
 
     }
 }
+// `http://139.59.0.129:5432/v1/student/getListByInstitute?listType=nohbtest&search=${search}&page=&limit=&institute_id=${id}`
 
 
 export const addHbTestAction = async (data) => {

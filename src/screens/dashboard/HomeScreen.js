@@ -115,8 +115,8 @@ const HomeScreen = ({ route, navigation: { addListener } }) => {
             );
             return;
         }
-
-        navigate(option.key, option.params ? option.params : {});
+        // console.log({ ...option.params, 'from': true })
+        navigate(option.key, option.params ? { ...option.params, 'fromHomeScreen': true } : {}, { 'fromHomeScreen': true });
     }
 
 

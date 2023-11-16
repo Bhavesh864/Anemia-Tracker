@@ -42,11 +42,11 @@ const Bottom = createBottomTabNavigator();
 
 const cardStyle = { cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }
 
-export const AuthNavigation = ({loginNav}) => (
-    <Stack.Navigator 
-    initialRouteName={loginNav}
-    screenOptions={{ ...hideHeader, ...cardStyle }}>
-       <Stack.Screen name="news" component={NewsScreen} />
+export const AuthNavigation = ({ loginNav }) => (
+    <Stack.Navigator
+        initialRouteName={loginNav}
+        screenOptions={{ ...hideHeader, ...cardStyle }}>
+        <Stack.Screen name="news" component={NewsScreen} />
         <Stack.Screen name="showData" component={ShowDataScreen} />
         <Stack.Screen name="login" component={LoginScreen} />
     </Stack.Navigator>
@@ -79,7 +79,7 @@ export const StackNavigation = () => (
         <Stack.Screen name="searchScreen" component={SearchScreen} options={{ title: "Search Students", headerLeft: null, headerRight: () => <AntDesign name="close" size={22} color={colors.black} onPress={() => goBack()} style={{ padding: 10, paddingRight: 20 }} /> }} />
         <Stack.Screen name="pctsList" component={PctsListScreen} options={{ title: "PCTS List" }} />
         <Stack.Screen name="pctsDetail" component={PctsDetailScreen} options={{ title: "PCTS Detail" }} />
-         
+
     </Stack.Navigator>
 )
 

@@ -95,7 +95,7 @@ const AddFormComponent = ({ placeType, instlist, onSubmit }) => {
 
             <TouchableTextView
                 label="Select Institute Name"
-                placeholder='Student Name'
+                placeholder='Institute Name'
                 onPress={() => setInstModal({ type: 'instList' })}
                 value={selectedInst?.name}
                 mandatory={true}

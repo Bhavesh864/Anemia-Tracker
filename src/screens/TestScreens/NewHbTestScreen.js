@@ -87,10 +87,12 @@ const NewHbTestScreen = ({ route }) => {
     }
 
 
+
     return (
         <View style={screenStyle}>
             {/* <ScrollView style={{ flex: 1 }}> */}
             {instituteList && <HbTestFields
+                fromHomeScreen={data?.fromHomeScreen}
                 placeType={placeCategory ? placeCategory : "school / college"}
                 instlist={instituteList ? instituteList : null}
                 selectedData={data?.student ? data?.student : null}

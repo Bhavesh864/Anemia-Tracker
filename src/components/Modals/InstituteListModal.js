@@ -30,6 +30,8 @@ const InstituteListModal = ({ onClose, list, onSelect, type, inst, showGov = tru
     const ref = useRef();
 
 
+
+
     useEffect(() => {
         setListArr(list);
     }, [list])
@@ -39,14 +41,12 @@ const InstituteListModal = ({ onClose, list, onSelect, type, inst, showGov = tru
     }, [loader])
 
 
-
     const searchAction = txt => {
         setSearch(txt);
 
         if (type == "instList") {
             setLoad(true);
             getInstituteListByType(inst, txt, activeType, false).then(res => {
-                //console.log(res);
                 if (res?.status) {
                     setLoad(false)
                     setSearchResult(res.list)
@@ -101,7 +101,7 @@ const InstituteListModal = ({ onClose, list, onSelect, type, inst, showGov = tru
             <View style={styles.modalComp}>
                 <View style={styles.comp}>
                     <ModalHeader
-                        title={type == "instList" ? 'Select Institue' : type == 'Block' ? 'Select Block' : "Select Student"}
+                        title={type == "instList" ? 'Select Institute' : type == 'Block' ? 'Select Block' : "Select Student"}
                         onPress={() => onClose()}
                     />
                     {(type == "instList" && showGov && (userProfile.role !== "asha" && inst !== "madarsa")) &&
@@ -156,9 +156,9 @@ const InstituteListModal = ({ onClose, list, onSelect, type, inst, showGov = tru
                                             text={item.name}
                                             size={14}
                                         />
-                                        {!(type == "instList") || (type == "instList" && item.address) && type != 'Block' &&
+                                        {(type != "instList") && type != 'Block' &&
                                             <AppText
-                                                text={type == "instList" ? item.address : `Guardian Name: ${item.guardian_name}`}
+                                                text={`Guardian Name: ${item.guardian_name}`}
                                                 size={13}
                                                 color={colors.darkGrey}
                                                 style={{ marginTop: 5 }}

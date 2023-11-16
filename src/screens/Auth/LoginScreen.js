@@ -51,7 +51,8 @@ const LoginScreen = () => {
         if (error) {
             setError(null);
         }
-        dispatch(userLogin(email.trim(), password, isPhone ? 'phone' : 'email'));
+
+        dispatch(userLogin(email.trim(), password, isPhone ? 'phone' : 'email', selectedSession));
     };
 
     const check_text = text => {
@@ -108,10 +109,11 @@ const LoginScreen = () => {
                         }}
                         items={sessions}
                         value={selectedSession}
-                        containerStyle={{ flex: 1, height: 40 }}
+                        containerStyle={{ flex: 1, height: 40, marginRight: 20 }}
                         style={{ backgroundColor: '#fafafa' }}
                         itemStyle={{
                             justifyContent: 'flex-start',
+                            marginRight: 20
                         }}
                         dropDownStyle={{ backgroundColor: '#fafafa' }}
                         setValue={(item) => {

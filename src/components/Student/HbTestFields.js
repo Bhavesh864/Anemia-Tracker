@@ -15,7 +15,7 @@ import SelectMedModal from '../Modals/SelectMedModal'
 import PctsListSelectModal from '../Modals/PctsListSelectModal'
 
 
-const HbTestFields = ({ placeType, instlist, onSubmit, selectedData, hbType, pctsName, selectedIns, studentName }) => {
+const HbTestFields = ({ fromHomeScreen, placeType, instlist, onSubmit, selectedData, hbType, pctsName, selectedIns, studentName }) => {
     const user = useSelector(state => state.user.user);
     const [instModal, setInstModal] = useState(null);
     const [selectedInst, setSelectedInst] = useState(selectedIns ? selectedIns : null);
@@ -31,14 +31,15 @@ const HbTestFields = ({ placeType, instlist, onSubmit, selectedData, hbType, pct
 
     AppConst.showConsoleLog("selected data: ", hbType);
     useEffect(() => {
+        // console.log('useEffect');
         if (selectedInst) {
-            //console.log('id', selectedInst.id);
             getStudentsByInst(selectedInst.id).then(res => {
-                //console.log('resList', res);
+                const filteredList = res.list.filter((item) => item.total_hb_test === 0 || item.total_hb_test === null);
+
                 if (res?.status) {
-                    setStudentList(res.list);
+                    setStudentList(fromHomeScreen ? filteredList : res?.list);
                 }
-            })
+            }, [selectedInst])
         }
 
         if (hbType?.key == "pcts") {
@@ -179,7 +180,7 @@ const HbTestFields = ({ placeType, instlist, onSubmit, selectedData, hbType, pct
 
                     {hbType !== 'pcts' && <TouchableTextView
                         label="Select Institute Name"
-                        placeholder={(hbType?.key == "pcts" || selectedPcts) ? "PCTS name" : 'Student name'}
+                        placeholder={(hbType?.key == "pcts" || selectedPcts) ? "PCTS name" : 'Institute name'}
                         value={selectedInst?.name}
                         onPress={() => setInstModal({ type: 'instList' })}
                         touchable={selectedData ? false : true}
@@ -298,7 +299,7 @@ const HbTestFields = ({ placeType, instlist, onSubmit, selectedData, hbType, pct
                         if (instModal.type == "instList") {
                             setSelectedInst(item);
                         } else if (instModal.type == "student") {
-                            setSelectedStudent(item)
+                            setSelectedStudent(item);
                         }
                         setInstModal(false);
                     }}
